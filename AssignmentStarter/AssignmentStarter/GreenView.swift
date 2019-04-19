@@ -1,9 +1,9 @@
 //
 //  GreenView.swift
-//  AutoLayoutStarter
+//  AssignmentStarter
 //
-//  Created by Derrick Park on 2019-04-18.
-//  Copyright © 2019 Derrick Park. All rights reserved.
+//  Created by Enrique on 2019-04-17.
+//  Copyright © 2019 Enrique. All rights reserved.
 //
 
 import UIKit
