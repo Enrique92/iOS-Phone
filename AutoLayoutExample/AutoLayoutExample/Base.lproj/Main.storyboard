@@ -21,9 +21,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ciccc" translatesAutoresizingMaskIntoConstraints="NO" id="j5h-wR-5sG">
                                 <rect key="frame" x="55" y="89" width="265" height="203"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Cornerstone is located in the beautiful British Columbia. Enjoy study and hospitality in the center of Vancouver." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xNF-tT-eHo">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xNF-tT-eHo">
                                 <rect key="frame" x="8" y="481" width="359" height="289"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">Cornerstone is located in the beautiful British Columbia. Enjoy study and hospitality in the center of Vancouver.Cornerstone is located in the beautiful British Columbia. Enjoy study and hospitality in the center of Vancouver.Cornerstone is located in the beautiful British Columbia. Enjoy study and hospitality in the center of Vancouver.Cornerstone is located in the beautiful British Columbia. Enjoy study and hospitality in the center of Cornerstone is located in the beautiful British Columbia. Enjoy study and hospitality in the center of Vancouver.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
