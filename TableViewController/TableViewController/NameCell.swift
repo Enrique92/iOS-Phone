@@ -9,6 +9,7 @@
 import UIKit
 
 class NameCell: UITableViewCell {
+
     @IBOutlet var nameCell: UILabel!
     
     override func awakeFromNib() {

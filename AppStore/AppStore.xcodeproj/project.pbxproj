@@ -13,6 +13,9 @@
 		2153CFE122725E6F00317A1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2153CFDF22725E6F00317A1F /* LaunchScreen.storyboard */; };
 		2153CFE922725F2100317A1F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2153CFE822725F2100317A1F /* MainTabBarController.swift */; };
 		2153CFEB2272684500317A1F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2153CFEA2272684500317A1F /* SearchViewController.swift */; };
+		2153D05222779B3500317A1F /* SearchCollectionViewsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2153D05122779B3500317A1F /* SearchCollectionViewsCells.swift */; };
+		2153D0552277B73800317A1F /* UIViewContrainLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2153D0542277B73800317A1F /* UIViewContrainLayout.swift */; };
+		2153D0582277BC3B00317A1F /* SearchResultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2153D0572277BC3B00317A1F /* SearchResultApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		2153CFE222725E6F00317A1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2153CFE822725F2100317A1F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		2153CFEA2272684500317A1F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		2153D05122779B3500317A1F /* SearchCollectionViewsCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewsCells.swift; sourceTree = "<group>"; };
+		2153D0542277B73800317A1F /* UIViewContrainLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewContrainLayout.swift; sourceTree = "<group>"; };
+		2153D0572277BC3B00317A1F /* SearchResultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,9 @@
 		2153CFD522725E6D00317A1F /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
+				2153D0562277BBDC00317A1F /* Models */,
+				2153D0532277B70B00317A1F /* Extension */,
+				2153D05022779AFE00317A1F /* View */,
 				2153CFEC2272686800317A1F /* Controller */,
 				2153CFED227268D300317A1F /* SupportingFiles */,
 				2153CFE222725E6F00317A1F /* Info.plist */,
@@ -81,6 +90,30 @@
 				2153CFDF22725E6F00317A1F /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		2153D05022779AFE00317A1F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2153D05122779B3500317A1F /* SearchCollectionViewsCells.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2153D0532277B70B00317A1F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2153D0542277B73800317A1F /* UIViewContrainLayout.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2153D0562277BBDC00317A1F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2153D0572277BC3B00317A1F /* SearchResultApp.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,8 +188,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2153CFD722725E6D00317A1F /* AppDelegate.swift in Sources */,
+				2153D05222779B3500317A1F /* SearchCollectionViewsCells.swift in Sources */,
 				2153CFEB2272684500317A1F /* SearchViewController.swift in Sources */,
 				2153CFE922725F2100317A1F /* MainTabBarController.swift in Sources */,
+				2153D0582277BC3B00317A1F /* SearchResultApp.swift in Sources */,
+				2153D0552277B73800317A1F /* UIViewContrainLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
