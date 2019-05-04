@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kde-Sw-4xu">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ToDo List-->
+        <scene sceneID="KjJ-JR-lhX">
+            <objects>
+                <tableViewController id="Qn9-H5-SCS" customClass="TodoTableViewController" customModule="TodoApp_Assignment6" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="a6a-8r-N6P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoCell" textLabel="B4D-4n-a02" style="IBUITableViewCellStyleDefault" id="jqh-aj-EtE">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jqh-aj-EtE" id="n2k-Bg-DTf">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B4D-4n-a02">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                            <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Qn9-H5-SCS" id="JTI-sQ-hxc"/>
+                            <outlet property="delegate" destination="Qn9-H5-SCS" id="at5-wt-9c2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="ToDo List" id="Q4d-XK-9sK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Tmg-Nm-OVZ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="nhR-s5-E6s" kind="presentation" identifier="showAdd" id="uqh-pO-bdW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4sc-Oi-HwO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="294" y="117"/>
+        </scene>
+        <!--Add View Controller-->
+        <scene sceneID="QUf-G7-RYP">
+            <objects>
+                <viewController id="nhR-s5-E6s" customClass="AddViewController" customModule="TodoApp_Assignment6" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hii-XX-dLY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="h2o-tw-jjd">
+                                <rect key="frame" x="48.5" y="84" width="317" height="358.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to do today?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUI-so-ext">
+                                        <rect key="frame" x="0.0" y="0.0" width="317" height="30.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Say something..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IYx-zQ-Nnl">
+                                        <rect key="frame" x="0.0" y="38.5" width="317" height="320"/>
+                                        <color key="backgroundColor" red="0.31585184179999998" green="0.86925456860000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="28"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="nhR-s5-E6s" id="V8H-VW-gfZ"/>
+                                        </connections>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="IYx-zQ-Nnl" firstAttribute="centerX" secondItem="h2o-tw-jjd" secondAttribute="centerX" id="JI1-BE-qU0"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="174" translatesAutoresizingMaskIntoConstraints="NO" id="jGj-1F-Vus">
+                                <rect key="frame" x="167.5" y="797" width="79" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqQ-n8-5SN">
+                                        <rect key="frame" x="0.0" y="0.0" width="79" height="45"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelAdd:" destination="nhR-s5-E6s" eventType="touchUpInside" id="q0d-Oo-jTi"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2J4-IZ-kd8">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="45"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                        <state key="normal" title="Add">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addTodo:" destination="nhR-s5-E6s" eventType="touchUpInside" id="NTm-vJ-e97"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottomMargin" secondItem="kqQ-n8-5SN" secondAttribute="bottom" id="q8n-kb-i7M"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.31585184179999998" green="0.86925456860000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="h2o-tw-jjd" firstAttribute="top" secondItem="931-nc-BdK" secondAttribute="top" constant="40" id="IoO-rV-xqD"/>
+                            <constraint firstItem="h2o-tw-jjd" firstAttribute="height" secondItem="Hii-XX-dLY" secondAttribute="height" multiplier="0.4" id="ges-vp-V9h"/>
+                            <constraint firstItem="h2o-tw-jjd" firstAttribute="centerX" secondItem="Hii-XX-dLY" secondAttribute="centerX" id="jiz-XB-lRk"/>
+                            <constraint firstItem="jGj-1F-Vus" firstAttribute="centerX" secondItem="Hii-XX-dLY" secondAttribute="centerX" id="mdi-IY-5S2"/>
+                            <constraint firstItem="931-nc-BdK" firstAttribute="bottom" secondItem="jGj-1F-Vus" secondAttribute="bottom" constant="20" id="tPf-hm-5Yb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="931-nc-BdK"/>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="2J4-IZ-kd8" id="Ejg-DD-zoB"/>
+                        <outlet property="bottomContraint" destination="tPf-hm-5Yb" id="LPl-Jo-XhK"/>
+                        <outlet property="cancelButton" destination="kqQ-n8-5SN" id="cQD-TP-p40"/>
+                        <outlet property="textView" destination="IYx-zQ-Nnl" id="UJF-Sg-Q8M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bqh-OR-8F4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="116.49175412293854"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tZ0-Oh-29u">
+            <objects>
+                <navigationController id="Kde-Sw-4xu" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="9sj-Rt-vNs">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.31585184179999998" green="0.86925456860000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Qn9-H5-SCS" kind="relationship" relationship="rootViewController" id="66l-E6-W9P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CJH-er-2Gt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-406" y="118"/>
+        </scene>
+    </scenes>
+</document>

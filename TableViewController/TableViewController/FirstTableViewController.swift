@@ -10,7 +10,17 @@ import UIKit
 
 class FirstTableViewController: UITableViewController {
     
-    var names:[String] = ["Derrick", "Masa", "Shota", "Ayana", "Juan", "Hao-Tse", "Gui", "Paulo", "Danilo", "Kazuya", "Mihail", "Ozan", "Daisuke", "Enrique", "Tom"]
+    var names:[String] = [
+        "Derrick", "Tom", "Gui", "Kazuya", "Juan", "Hao-tse", "Paulo",
+        "Scott", "Ayana", "Shota", "Masa", "Enrique", "Mihail", "Ozan",
+        "Daisuke", "Danilo"
+    ]
+    
+    var names:[String] = [
+        "AAAA", "BBBB", "CCCC", "DDDD", "EEEEE", "FFFF", "GGGG",
+        "HHHHH", "IIII", "JJJJ", "KKKK", "LLLLL", "MMMMM", "NNNNN",
+        "OOOOO", "PPPPP"
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +37,16 @@ class FirstTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NameCell
-        cell.nameCell?.text = names[indexPath.row]
-        return cell
+        let cellName = tableView.dequeueReusableCell(withIdentifier: "cellName", for: indexPath) as! NameCell
         
+        cellName.nameCell?.text = names[indexPath.row]
+        return cellName
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellSurname = tableView.dequeueReusableCell(withIdentifier: "cellSurname", for: indexPath) as! SurnameCell
+        
+        cellSurname.surnameCell?.text = names[indexPath.row]
+        return cellSurname
     }
 }

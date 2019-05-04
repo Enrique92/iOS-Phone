@@ -18,15 +18,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="LrR-OY-Aze" customClass="NameCell" customModule="TableViewController" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellName" rowHeight="48" id="LrR-OY-Aze" customClass="NameCell" customModule="TableViewController" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LrR-OY-Aze" id="dgL-fs-aPf">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Names" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnh-hO-yFv">
-                                            <rect key="frame" x="8" y="5" width="398" height="27.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Names" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnh-hO-yFv">
+                                            <rect key="frame" x="8" y="5" width="398" height="41"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -42,7 +42,28 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameCell" destination="hnh-hO-yFv" id="OSp-ny-IrE"/>
+                                    <outlet property="surnameCell" destination="7uJ-O6-BOK" id="8Af-Jg-Kte"/>
                                     <segue destination="lat-M4-bb6" kind="show" id="CbR-Ia-ruu"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellSurname" id="LeV-oV-1jP" customClass="SurnameCell" customModule="TableViewController" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="76" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LeV-oV-1jP" id="D7z-oV-ocR">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Surnames" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uJ-O6-BOK">
+                                            <rect key="frame" x="20" y="11" width="386" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="surnameCell" destination="D7z-oV-ocR" id="VGq-5Q-KRm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -51,7 +72,7 @@
                             <outlet property="delegate" destination="dB2-0u-Ou3" id="uTR-gW-aKG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Agenda" id="MhG-Rj-Uzp"/>
+                    <navigationItem key="navigationItem" title="Items" id="MhG-Rj-Uzp"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1c-QC-8Sk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
