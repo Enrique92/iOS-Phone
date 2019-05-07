@@ -17,4 +17,7 @@ struct SearchResultApp: Decodable {
 struct ResultsApp: Decodable {
     let trackName: String
     let primaryGenreName: String
+    let averageUserRating: Float? // Rating from the user
+    let screenShootUrl: String // Image of the App
+    let artWorkURL100: String // App icon
 }

@@ -7,10 +7,45 @@
 //
 
 import UIKit
+import SDWebImage
 
-class SearchViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SearchViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
-    fileprivate let cellId = "resultCell"
+    private let cellId = "resultCell"
+    
+    // Data to storage the information
+    private var searchResult = [ResultsApp]()
+    
+    // Search controller
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
+    
+    // Made a timer
+    var time: Timer?
+    
+    
+    fileprivate func setUpSearchBar() {
+        // Set the warning
+        definesPresentationContext = true
+        navigationItem.searchController = self.searchController
+        
+        // Set the navigation Item
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // Search throttling
+        time?.invalidate()
+        time = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: {} in )
+        
+        
+        NetworkService.shared.fetchSearchResult(searchText) {
+            (result, err) in self.searchResult = result
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +55,13 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
         // Set the background color to white
         collectionView.backgroundColor = .white
         
-        // Call the JSON
-        fetchSearchResultsApps()
+        // Call the search bar
+        setUpSearchBar()
     }
     
     // MARK
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 200
+        return searchResult.count
     }
     
     // MARK
@@ -40,6 +75,12 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
         SearchCollectionViewsCells
         cell.backgroundColor = .purple
         
+        cell.nameLabel.text = self.searchResult[indexPath.row].trackName
+        cell.categoryLabel.text = searchResult[indexPath.row].primaryGenreName
+        cell.ratingLabel.text = "\(searchResult[indexPath.row].averageUserRating ?? 0)"
+        // Set the imageView
+        cell.iconImageView.sd_setImage(with: URL(string: resultApp.screenshot))
+        
         
         return cell
     }
@@ -51,31 +92,5 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    fileprivate func fetchSearchResultsApps() {
-        // Call the URL
-        let urlStr = "https://itunes.apple.com/search?term=facebook&entity=software"
-        guard let url = URL(string: urlStr) else { return }
-        
-        // Send the request
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let err = error {
-                print("Failed to fetch the app!", err)
-                return
-            }
-            
-            guard let data = data else { return }
-            do  {
-                // Parse the response
-                let searchResult = try JSONDecoder().decode(SearchResultApp.self, from: data)
-                searchResult.results.forEach({(result) in
-                    print(result.trackName, result.primaryGenreName)
-                })
-            } catch {
-                print("Failed to decode JSON!", error)
-            }
-        }.resume()
-        
     }
 }
