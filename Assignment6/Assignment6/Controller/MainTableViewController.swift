@@ -13,10 +13,13 @@ class MainTableViewController: UITableViewController {
     @IBOutlet var tableViewMain: UITableView!
     @IBOutlet var buttonEdit: UIBarButtonItem!
     
-    var items : [ToDo] = []
+    // Get the prioroties
+    var itemsList: [ItemPriority] = ItemPriority.getPriorityItems()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.estimatedRowHeight = tableView.rowHeight
     }
     
     // MARK: - Function to allow reordering
@@ -28,18 +31,23 @@ class MainTableViewController: UITableViewController {
         return true
     }
     
+    // MARK: - Number of sections for the products
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return itemsList.count
+    }
+    
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let itemToMove = items[sourceIndexPath.row]
+        let itemToMove = itemsList[sourceIndexPath.row]
         
         // Remove the item from the cell
-        items.remove(at: sourceIndexPath.row)
+        itemsList.remove(at: sourceIndexPath.row)
         
         // Insert the new item in the position
-        items.insert(itemToMove, at: destinationIndexPath.row)
+        itemsList.insert(itemToMove, at: destinationIndexPath.row)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return itemsList[section].items.count
     }
     
     // MARK: - Table View Delegate
@@ -66,12 +74,27 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as? CellTableView
-        let toDo = items[indexPath.row]
-        cell?.textLabel?.text = toDo.name
+        // Cast the cellTableView
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as! CellTableView
         
-        return cell!
+//        let itemToDo = itemsList[indexPath.section]
+//        let item = itemToDo.priority
+        let itemsListToDo = itemsList[indexPath.section]
+        let items = itemsListToDo.items
+        let item = items[indexPath.row]
+        
+        // Item assing to the cell
+        cell.item = item
+        
+        //cell.textLabel?.text = itemsToDo.name
+        
+        return cell
     }
+    
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        let itemTitle = itemsList[section]
+//        return itemTitle.priority
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Call to the next viewController
@@ -80,9 +103,8 @@ class MainTableViewController: UITableViewController {
             addVC.previousVC = self
         }
         
-        if let detailsVC = segue.destination as? DetailViewController {
-            detailsVC.getName = items[(tableViewMain.indexPathForSelectedRow?.row)!]
-            //detailsVC.previousVC = self
-        }
+//        if let detailsVC = segue.destination as? DetailViewController {
+//            detailsVC.getName = itemsList[(tableViewMain.indexPathForSelectedRow?.row)!]
+//        }
     }
 }

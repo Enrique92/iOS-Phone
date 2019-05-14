@@ -12,6 +12,17 @@ class CellTableView: UITableViewCell {
 
     @IBOutlet var labelTitle: UILabel!
     
+    var item: Item? {
+        didSet {
+            self.updateUI()
+        }
+    }
+    
+    func updateUI() {
+        labelTitle.text = item?.name
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

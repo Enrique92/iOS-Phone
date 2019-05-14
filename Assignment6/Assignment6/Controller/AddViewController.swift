@@ -35,15 +35,14 @@ class AddViewController: UIViewController {
     // Add the item to the tableViewController
     @IBAction func addItem(_ sender: Any) {
         // Add a new Item
-        let addItem = ToDo()
+        let addItem = Item()
         
         if let titleText = textFieldTitle.text, !titleText.isEmpty {
             // Add the fields to the class
             addItem.name = titleText
-            addItem.important = false
             
             // Add to the array the new Item
-            previousVC.items.append(addItem)
+            previousVC.itemsList.append(ItemPriority(prio: "Normal", includePriority: []))
             
             // Reload the previous viewController
             previousVC.tableView.reloadData()

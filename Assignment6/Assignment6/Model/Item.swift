@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ToDo {
+class Item {
     var name = ""
-    var important = false
+    var priority = [ItemPriority]()
 }

@@ -13,11 +13,11 @@ class DetailViewController: UIViewController {
     @IBOutlet var detailsName: UILabel!
     @IBOutlet var cancelButton: UIButton!
     
-    var getName: ToDo?
+    var getName: Item?
     
     // Reference to the previous viewController
     var previousVC = MainTableViewController()
-    var selectDetailsItem = ToDo()
+    var selectDetailsItem = Item()
 
     override func viewDidLoad() {
         super.viewDidLoad()

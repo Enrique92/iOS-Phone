@@ -17,14 +17,13 @@ class EditViewController: UIViewController {
     @IBOutlet var buttonSaveEditing: UIButton!
     
     @IBAction func saveEditing(_ sender: Any) {
-        let editItem = ToDo()
+        let editItem = Item()
         
         if let titleEditText = editTextTitle.text {
             editItem.name = titleEditText
-            editItem.important = false
             
             // Add to the array the new Item
-            takeDataFromTable.items.append(editItem)
+            takeDataFromTable.itemsList.append(ItemPriority(prio: "Normal", includePriority: []))
             
             // Reload the previous viewController
             takeDataFromTable.tableView.reloadData()
