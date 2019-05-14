@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		21D8DFB12286406000CD40AA /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D8DFB02286406000CD40AA /* QuestionData.swift */; };
-		21D8DFB32286413000CD40AA /* AnswerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D8DFB22286413000CD40AA /* AnswerData.swift */; };
 		21F892822284E02500F65CAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F892812284E02500F65CAF /* AppDelegate.swift */; };
 		21F892842284E02500F65CAF /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F892832284E02500F65CAF /* IntroductionViewController.swift */; };
 		21F892872284E02500F65CAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21F892852284E02500F65CAF /* Main.storyboard */; };
@@ -20,7 +19,6 @@
 
 /* Begin PBXFileReference section */
 		21D8DFB02286406000CD40AA /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
-		21D8DFB22286413000CD40AA /* AnswerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerData.swift; sourceTree = "<group>"; };
 		21F8927E2284E02500F65CAF /* PersonalityQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalityQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F892812284E02500F65CAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21F892832284E02500F65CAF /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +45,6 @@
 			isa = PBXGroup;
 			children = (
 				21D8DFB02286406000CD40AA /* QuestionData.swift */,
-				21D8DFB22286413000CD40AA /* AnswerData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,7 +163,6 @@
 				21F892842284E02500F65CAF /* IntroductionViewController.swift in Sources */,
 				21F892822284E02500F65CAF /* AppDelegate.swift in Sources */,
 				21D8DFB12286406000CD40AA /* QuestionData.swift in Sources */,
-				21D8DFB32286413000CD40AA /* AnswerData.swift in Sources */,
 				21F892952284E85100F65CAF /* QuestionViewController.swift in Sources */,
 				21F892972284E90300F65CAF /* ResultViewController.swift in Sources */,
 			);
