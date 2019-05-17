@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2116F06A227CF919008DA9EE /* CellTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2116F069227CF919008DA9EE /* CellTableView.swift */; };
+		212071BD228F556300DDD87F /* DataModelTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 212071BB228F556300DDD87F /* DataModelTodo.xcdatamodeld */; };
 		212263F7227B84C2006CDDD7 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212263F6227B84C2006CDDD7 /* EditViewController.swift */; };
 		218B06D6227A825100250DB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B06D5227A825100250DB6 /* AppDelegate.swift */; };
 		218B06DB227A825100250DB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218B06D9227A825100250DB6 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		2116F069227CF919008DA9EE /* CellTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTableView.swift; sourceTree = "<group>"; };
+		212071BC228F556300DDD87F /* DataModelTodo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModelTodo.xcdatamodel; sourceTree = "<group>"; };
 		212263F6227B84C2006CDDD7 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		218B06D2227A825100250DB6 /* Assignment6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218B06D5227A825100250DB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		212071BE228F556B00DDD87F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				212071BB228F556300DDD87F /* DataModelTodo.xcdatamodeld */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		218B06C9227A825100250DB6 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 		218B06D4227A825100250DB6 /* Assignment6 */ = {
 			isa = PBXGroup;
 			children = (
+				212071BE228F556B00DDD87F /* Data */,
 				21F892542283C21300F65CAF /* Resources */,
 				21F892532283C20500F65CAF /* Cell */,
 				21F892522283C1F200F65CAF /* Model */,
@@ -185,6 +196,7 @@
 				212263F7227B84C2006CDDD7 /* EditViewController.swift in Sources */,
 				2116F06A227CF919008DA9EE /* CellTableView.swift in Sources */,
 				218B06EA227A865500250DB6 /* Item.swift in Sources */,
+				212071BD228F556300DDD87F /* DataModelTodo.xcdatamodeld in Sources */,
 				218B06E8227A85B100250DB6 /* MainTableViewController.swift in Sources */,
 				218B06EC227A8E2B00250DB6 /* AddViewController.swift in Sources */,
 				21F892562283C89300F65CAF /* ItemPriority.swift in Sources */,
@@ -388,6 +400,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		212071BB228F556300DDD87F /* DataModelTodo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				212071BC228F556300DDD87F /* DataModelTodo.xcdatamodel */,
+			);
+			currentVersion = 212071BC228F556300DDD87F /* DataModelTodo.xcdatamodel */;
+			path = DataModelTodo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 218B06CA227A825100250DB6 /* Project object */;
 }

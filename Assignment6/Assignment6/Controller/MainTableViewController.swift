@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainTableViewController: UITableViewController {
     
@@ -82,8 +83,8 @@ class MainTableViewController: UITableViewController {
         // Cast the cellTableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as! CellTableView
         
-//        let itemToDo = itemsList[indexPath.section]
-//        let item = itemToDo.priority
+        //        let itemToDo = itemsList[indexPath.section]
+        //        let item = itemToDo.priority
         let itemsListToDo = itemsList[indexPath.section]
         let items = itemsListToDo.items
         let item = items[indexPath.row]
@@ -112,10 +113,10 @@ class MainTableViewController: UITableViewController {
             let editVC = segue.destination as! EditViewController
             editVC.itemsList = itemSelected
         }
-
-//        if let editVC = segue.destination as? EditViewController {
-//            editVC.itemsList = itemSelected
-//        }
+        
+        //        if let editVC = segue.destination as? EditViewController {
+        //            editVC.itemsList = itemSelected
+        //        }
     }
     
     // MARK: - UITableViewDelegate
@@ -131,5 +132,21 @@ class MainTableViewController: UITableViewController {
         performSegue(withIdentifier: "EditItem", sender: nil)
     }
     
-
+    func getData() {
+        let itemsList = Item()
+        let context = [UIApplication.shared.delegate as! AppDelegate].persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>[entityName: "Item"]
+        request.returnObjectsAsFault = false
+        
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                itemsList = data.value(forKey: "name") as! String
+            }
+        } cactch {
+            print("Fail to load data.")
+        }
+    }
+    
+    
 }

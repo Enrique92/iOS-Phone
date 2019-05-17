@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddViewController: UIViewController {
     
@@ -34,6 +35,13 @@ class AddViewController: UIViewController {
     
     // Add the item to the tableViewController
     @IBAction func addItem(_ sender: Any) {
+        // Add to the core data
+        let context = [UIApplication.shared.delegate as? AppDelegate].persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Item", in: context)
+        let newItem = NSManagedObject(entity: entity!, insertInto: context)
+        
+        newItem.setValue(textFieldTitle.text, forKey: "name")
+        
         // Add a new Item
         let addItem = Item(name: "")
         
@@ -61,6 +69,8 @@ class AddViewController: UIViewController {
             dismiss(animated: true)
             textFieldTitle.resignFirstResponder()
         }
+        
+        context.save()
     }
     
     @objc func keyboardWillShow(with notification: Notification) {
