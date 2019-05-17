@@ -22,7 +22,6 @@ class CellTableView: UITableViewCell {
         labelTitle.text = item?.name
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

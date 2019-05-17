@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TODO-->
+        <!--LIST OF TASK-->
         <scene sceneID="XSQ-gV-4xG">
             <objects>
                 <tableViewController id="xeh-oa-IoD" customClass="MainTableViewController" customModule="Assignment6" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,7 +37,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="labelTitle" destination="6T1-oi-w2L" id="v8m-yP-h6m"/>
-                                    <segue destination="8qs-Ur-jbe" kind="presentation" identifier="seeDetails" id="yln-9a-ESS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -46,7 +45,7 @@
                             <outlet property="delegate" destination="xeh-oa-IoD" id="ezO-iw-muO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="TODO" id="RKY-Mv-gvR">
+                    <navigationItem key="navigationItem" title="LIST OF TASK" id="RKY-Mv-gvR">
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="mE8-4S-5i3">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -63,6 +62,7 @@
                     <connections>
                         <outlet property="buttonEdit" destination="mE8-4S-5i3" id="rJb-NG-1H5"/>
                         <outlet property="tableViewMain" destination="bI3-xj-Uay" id="PA7-k6-6ZR"/>
+                        <segue destination="7Fj-7c-BZg" kind="presentation" identifier="EditItem" id="BBp-0J-d6k"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTr-g8-s7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -194,7 +194,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="174" translatesAutoresizingMaskIntoConstraints="NO" id="S2Q-EF-SuL">
-                                <rect key="frame" x="167.5" y="797" width="79" height="45"/>
+                                <rect key="frame" x="52.5" y="797" width="309" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9so-HX-C5D">
                                         <rect key="frame" x="0.0" y="0.0" width="79" height="45"/>
@@ -203,17 +203,17 @@
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="cancelAdd:" destination="7Fj-7c-BZg" eventType="touchUpInside" id="rxu-rg-qqm"/>
+                                            <action selector="cancelAdd:" destination="7Fj-7c-BZg" eventType="touchUpInside" id="nKH-g2-WeG"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i38-7B-DGG">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i38-7B-DGG" userLabel="Save Button">
+                                        <rect key="frame" x="253" y="0.0" width="56" height="45"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
-                                        <state key="normal" title="Add">
+                                        <state key="normal" title="Save">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="addTodo:" destination="7Fj-7c-BZg" eventType="touchUpInside" id="qP6-bB-kJB"/>
+                                            <action selector="saveEditing:" destination="7Fj-7c-BZg" eventType="touchUpInside" id="x28-MY-2g6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -233,71 +233,14 @@
                         <viewLayoutGuide key="safeArea" id="gDc-0w-yls"/>
                     </view>
                     <connections>
-                        <outlet property="addButton" destination="i38-7B-DGG" id="Bvh-X6-HK2"/>
-                        <outlet property="bottomContraint" destination="tLh-Zg-VEL" id="oPD-vI-kmx"/>
-                        <outlet property="cancelButton" destination="9so-HX-C5D" id="SXI-al-blW"/>
-                        <outlet property="textView" destination="E0o-bx-JqW" id="zQ2-o1-XBw"/>
+                        <outlet property="buttonCancelEditing" destination="9so-HX-C5D" id="5z9-KE-mzh"/>
+                        <outlet property="buttonSaveEditing" destination="i38-7B-DGG" id="aEx-lI-8Zb"/>
+                        <outlet property="editTextView" destination="E0o-bx-JqW" id="Oka-ys-cEQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AcC-ND-iGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="654" y="-198"/>
-        </scene>
-        <!--Detail View Controller-->
-        <scene sceneID="TwU-xj-RBw">
-            <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="8qs-Ur-jbe" customClass="DetailViewController" customModule="Assignment6" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="sPg-Pe-m93">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The details of your task are" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpN-Q1-ooX">
-                                <rect key="frame" x="50" y="96" width="271" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your task is..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nyz-7N-l4v">
-                                <rect key="frame" x="50" y="154" width="192" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hDF-UV-mBe">
-                                <rect key="frame" x="167.5" y="797" width="79" height="45"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ojb-MD-unz">
-                                        <rect key="frame" x="0.0" y="0.0" width="79" height="45"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="cancelAdd:" destination="8qs-Ur-jbe" eventType="touchUpInside" id="3Mm-wU-rmi"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.31585184179999998" green="0.86925456860000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="hDF-UV-mBe" firstAttribute="centerX" secondItem="sPg-Pe-m93" secondAttribute="centerX" id="cjl-z3-FR5"/>
-                            <constraint firstItem="JCh-gp-1yJ" firstAttribute="bottom" secondItem="hDF-UV-mBe" secondAttribute="bottom" constant="20" id="lIw-ol-fGZ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="JCh-gp-1yJ"/>
-                    </view>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <connections>
-                        <outlet property="cancelButton" destination="Ojb-MD-unz" id="71M-Aj-XMP"/>
-                        <outlet property="detailsName" destination="Nyz-7N-l4v" id="yyh-eM-Kez"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IG1-dr-lw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-52" y="-198"/>
         </scene>
     </scenes>
 </document>

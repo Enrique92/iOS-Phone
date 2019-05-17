@@ -32,29 +32,20 @@ class ViewController: UIViewController {
         colorView.layer.cornerRadius = 20
         colorView.layer.borderColor = UIColor.black.cgColor
         
-        updateControls()
+        inicialUpdate()
+    }
+    
+    func inicialUpdate(){
+        
+        let c = Default.getColors()
+        red = c.r
+        blue = c.b
+        green = c.g
+        redSlider.setValue(Float(red), animated: true)
+        greenSlider.setValue(Float(green), animated: true)
+        blueSlider.setValue(Float(blue), animated: true)
+        
         updateColor()
-        
-        // Get the default user again
-        let defaultObject = UserDefaults.standard
-        
-        if defaultObject.object(forKey: "redSlider") != nil {
-            redSlider.value = defaultObject.float(forKey: "redSlider")
-            red = CGFloat(defaultObject.float(forKey: "colorRed"))
-        }
-        
-        if (defaultObject.object(forKey: "greenSlider") != nil) {
-            greenSlider.value = defaultObject.float(forKey: "greenSlider")
-            green = CGFloat(defaultObject.float(forKey: "colorGreen"))
-        }
-        
-        if (defaultObject.object(forKey: "blueSlider") != nil) {
-            blueSlider.value = defaultObject.float(forKey: "blueSlider")
-            blue = CGFloat(defaultObject.float(forKey: "colorBlue"))
-        }
-        
-        let bgColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-        colorView.backgroundColor = bgColor
     }
     
     fileprivate func updateColor() {
@@ -64,27 +55,20 @@ class ViewController: UIViewController {
         // Red color
         if redSwitch.isOn {
             red = CGFloat(redSlider.value)
-            defaultUser.set(red, forKey: "colorRed")
-            defaultUser.set(redSlider.value, forKey: "redSlider")
         }
         
         // Green color
         if greenSwitch.isOn {
             green = CGFloat(greenSlider.value)
-            defaultUser.set(green, forKey: "colorGreen")
-            defaultUser.set(greenSlider.value, forKey: "greenSlider")
         }
         
         // Blue color
         if blueSwitch.isOn {
             blue = CGFloat(blueSlider.value)
-            defaultUser.set(blue, forKey: "colorBlue")
-            defaultUser.set(blueSlider.value, forKey: "blueSlider")
         }
         
         bgColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
         colorView.backgroundColor = bgColor
-        defaultUser.set(bgColor, forKey: "colorView")
     }
     
     fileprivate func updateControls() {
@@ -98,7 +82,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func switchChanged(_ sender: UISwitch) {
-        updateControls()
         updateColor()
     }
     

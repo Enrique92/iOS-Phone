@@ -12,6 +12,11 @@ class ItemPriority {
     var typePriority: String
     var items: [Item]
     
+    init(includePriority: [Item]) {
+        typePriority = ""
+        items = includePriority
+    }
+    
     init(prio: String, includePriority: [Item]) {
         typePriority = prio
         items = includePriority
@@ -22,20 +27,25 @@ class ItemPriority {
         return [HighPriority(), NormalPriority(), LowPriority()]
     }
     
-    private class func HighPriority() -> ItemPriority {
-        let itemsHighPrio = [Item]()
+    class func getPriorityNormal() -> [ItemPriority] {
+        // Add the normal Priority
+        return [NormalPriority()]
+    }
+    
+    class func HighPriority() -> ItemPriority {
+        var itemsHighPrio = [Item]()
         
         return ItemPriority(prio: "High", includePriority: itemsHighPrio)
     }
     
-    private class func NormalPriority() -> ItemPriority {
-        let itemsNormalPrio = [Item]()
+    class func NormalPriority() -> ItemPriority {
+        var itemsNormalPrio = [Item]()
         
         return ItemPriority(prio: "Normal", includePriority: itemsNormalPrio)
     }
     
-    private class func LowPriority() -> ItemPriority {
-        let itemsLowPrio = [Item]()
+    class func LowPriority() -> ItemPriority {
+        var itemsLowPrio = [Item]()
         
         return ItemPriority(prio: "Low", includePriority: itemsLowPrio)
     }

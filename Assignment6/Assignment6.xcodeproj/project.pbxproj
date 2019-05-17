@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2116F06A227CF919008DA9EE /* CellTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2116F069227CF919008DA9EE /* CellTableView.swift */; };
 		212263F7227B84C2006CDDD7 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212263F6227B84C2006CDDD7 /* EditViewController.swift */; };
-		212263F9227B9E5A006CDDD7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212263F8227B9E5A006CDDD7 /* DetailViewController.swift */; };
 		218B06D6227A825100250DB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B06D5227A825100250DB6 /* AppDelegate.swift */; };
 		218B06DB227A825100250DB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218B06D9227A825100250DB6 /* Main.storyboard */; };
 		218B06DD227A825300250DB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218B06DC227A825300250DB6 /* Assets.xcassets */; };
@@ -23,7 +22,6 @@
 /* Begin PBXFileReference section */
 		2116F069227CF919008DA9EE /* CellTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTableView.swift; sourceTree = "<group>"; };
 		212263F6227B84C2006CDDD7 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		212263F8227B9E5A006CDDD7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		218B06D2227A825100250DB6 /* Assignment6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218B06D5227A825100250DB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		218B06DA227A825100250DB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 				218B06E7227A85B100250DB6 /* MainTableViewController.swift */,
 				218B06EB227A8E2B00250DB6 /* AddViewController.swift */,
 				212263F6227B84C2006CDDD7 /* EditViewController.swift */,
-				212263F8227B9E5A006CDDD7 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -189,7 +186,6 @@
 				2116F06A227CF919008DA9EE /* CellTableView.swift in Sources */,
 				218B06EA227A865500250DB6 /* Item.swift in Sources */,
 				218B06E8227A85B100250DB6 /* MainTableViewController.swift in Sources */,
-				212263F9227B9E5A006CDDD7 /* DetailViewController.swift in Sources */,
 				218B06EC227A8E2B00250DB6 /* AddViewController.swift in Sources */,
 				21F892562283C89300F65CAF /* ItemPriority.swift in Sources */,
 				218B06D6227A825100250DB6 /* AppDelegate.swift in Sources */,

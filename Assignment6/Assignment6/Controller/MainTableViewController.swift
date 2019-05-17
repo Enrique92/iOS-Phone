@@ -15,10 +15,15 @@ class MainTableViewController: UITableViewController {
     
     // Get the prioroties
     var itemsList: [ItemPriority] = ItemPriority.getPriorityItems()
+    // Get the normal items of the list
+    var itemsListNormal: [ItemPriority] = ItemPriority.getPriorityNormal()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Add the priority lists to the main list
+        //itemsList.append(contentsOf: itemsListHigh)
+        //itemsList.append(contentsOf: itemsListLow)
         tableView.estimatedRowHeight = tableView.rowHeight
     }
     
@@ -86,16 +91,15 @@ class MainTableViewController: UITableViewController {
         // Item assing to the cell
         cell.item = item
         
-        //cell.textLabel?.text = itemsToDo.name
-        
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        let itemTitle = itemsList[section]
-//        return itemTitle.priority
-//    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let itemTitle = itemsList[section]
+        return itemTitle.typePriority
+    }
     
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Call to the next viewController
         if let addVC = segue.destination as? AddViewController {
@@ -103,8 +107,29 @@ class MainTableViewController: UITableViewController {
             addVC.previousVC = self
         }
         
-//        if let detailsVC = segue.destination as? DetailViewController {
-//            detailsVC.getName = itemsList[(tableViewMain.indexPathForSelectedRow?.row)!]
+        // Call to the next viewController
+        if segue.identifier == "EditItem" {
+            let editVC = segue.destination as! EditViewController
+            editVC.itemsList = itemSelected
+        }
+
+//        if let editVC = segue.destination as? EditViewController {
+//            editVC.itemsList = itemSelected
 //        }
     }
+    
+    // MARK: - UITableViewDelegate
+    var itemSelected: Item?
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let itemPriority = itemsList[indexPath.section]
+        let item = itemPriority.items[indexPath.row]
+        
+        itemSelected = item
+        
+        // Move the data to the other screen
+        performSegue(withIdentifier: "EditItem", sender: nil)
+    }
+    
+
 }

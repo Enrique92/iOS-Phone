@@ -9,6 +9,13 @@
 import UIKit
 
 class Item {
-    var name = ""
-    var priority = [ItemPriority]()
+    var name: String
+    var priority: ItemPriority
+    
+    init (name: String) {
+        self.name = name
+        self.priority = .NormalPriority()
+    }
 }
+
+

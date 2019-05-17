@@ -13,27 +13,41 @@ class EditViewController: UIViewController {
     // Reference to the tableViewController
     var takeDataFromTable = MainTableViewController()
     
-    @IBOutlet var editTextTitle: UITextField!
+    
+    @IBOutlet var editTextView: UITextView!
+    @IBOutlet var buttonCancelEditing: UIButton!
     @IBOutlet var buttonSaveEditing: UIButton!
     
+    
+    var itemsList: Item?
+    
+    @IBAction func cancelAdd(_ sender: UIButton) {
+        dismiss(animated: true)
+        editTextView.resignFirstResponder()
+    }
+    
     @IBAction func saveEditing(_ sender: Any) {
-        let editItem = Item()
+        let editItem = Item(name: "")
         
-        if let titleEditText = editTextTitle.text {
+        if let titleEditText = editTextView.text {
             editItem.name = titleEditText
             
-            // Add to the array the new Item
-            takeDataFromTable.itemsList.append(ItemPriority(prio: "Normal", includePriority: []))
-            
+            // Add to the array the edited Item
+            takeDataFromTable.itemsList.append(ItemPriority(includePriority: [Item(name: titleEditText)]))
+
             // Reload the previous viewController
             takeDataFromTable.tableView.reloadData()
             
             // Add animation to the controllView
             navigationController?.popViewController(animated: true)
+            dismiss(animated: true)
+            editTextView.resignFirstResponder()
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        editTextView.text = itemsList?.name
     }
 }

@@ -22,7 +22,7 @@ class AddViewController: UIViewController {
         super.viewDidLoad()
         
         textFieldTitle.text = "Write something..."
-        textFieldTitle.textColor = .blue
+        textFieldTitle.textColor = .white
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(with:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
@@ -35,14 +35,23 @@ class AddViewController: UIViewController {
     // Add the item to the tableViewController
     @IBAction func addItem(_ sender: Any) {
         // Add a new Item
-        let addItem = Item()
+        let addItem = Item(name: "")
         
         if let titleText = textFieldTitle.text, !titleText.isEmpty {
             // Add the fields to the class
             addItem.name = titleText
             
+            
             // Add to the array the new Item
-            previousVC.itemsList.append(ItemPriority(prio: "Normal", includePriority: []))
+            if !previousVC.itemsListNormal.isEmpty {
+                previousVC.itemsListNormal.insert(ItemPriority(includePriority: [Item(name: titleText)]), at: 0)
+            } else {
+                previousVC.itemsListNormal.append(ItemPriority(includePriority: [Item(name: titleText)]))
+            }
+            
+            
+            // Add to the main list the rest of the priority tasks
+            previousVC.itemsList.append(contentsOf: previousVC.itemsListNormal)
             
             // Reload the previous viewController
             previousVC.tableView.reloadData()
@@ -68,12 +77,10 @@ class AddViewController: UIViewController {
 
 extension AddViewController: UITextViewDelegate {
     func textViewDidChangeSelection(_ textView: UITextView) {
-        if !addITem.isHidden {
-            textView.text.removeAll()
-            textView.textColor = .white
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.layoutIfNeeded()
-            })
-        }
+        textView.text.removeAll()
+        textView.textColor = .white
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
 }
