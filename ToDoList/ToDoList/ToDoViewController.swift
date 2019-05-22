@@ -10,12 +10,13 @@ import UIKit
 
 class ToDoViewController: UITableViewController {
     
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var isCompleteButton: UIButton!
-    @IBOutlet weak var dueDateLabel: UILabel!
-    @IBOutlet weak var dueDatePickerView: UIDatePicker!
-    @IBOutlet weak var notesTextView: UITextView!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
+    // Create the items of the screen
+    @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var isCompleteButton: UIButton!
+    @IBOutlet var dueDateLabel: UILabel!
+    @IBOutlet var dueDatePickerView: UIDatePicker!
+    @IBOutlet var notesTextView: UITextView!
+    @IBOutlet var saveButton: UIBarButtonItem!
     
     var isPickerHidden = true
     var todo: ToDo?
@@ -37,6 +38,7 @@ class ToDoViewController: UITableViewController {
         updateSaveButtonState()
     }
     
+    // Add the height fot the row of the tableView
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let normalCellHeight = CGFloat(44)
         let largeCellHeight = CGFloat(200)
@@ -51,6 +53,7 @@ class ToDoViewController: UITableViewController {
         }
     }
     
+    // Add the functionality to select the row of each item in the tableView
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
         case [1, 0]:
@@ -65,10 +68,12 @@ class ToDoViewController: UITableViewController {
         }
     }
     
+    // Add the method to add if the task is done or not
     @IBAction func isCompleteButtonTapped(_ sender: UIButton) {
         isCompleteButton.isSelected = !isCompleteButton.isSelected
     }
     
+    // Change the text when is editing
     @IBAction func textEditingChanged(_ sender: UITextField) {
         updateSaveButtonState()
     }
@@ -77,19 +82,23 @@ class ToDoViewController: UITableViewController {
         titleTextField.resignFirstResponder()
     }
     
+    // Select the date for the task
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
         updateDueDateLabel(date: dueDatePickerView.date)
     }
     
+    // Save the changes or the state of the task
     func updateSaveButtonState() {
         let text = titleTextField.text ?? ""
         saveButton.isEnabled = !text.isEmpty
     }
     
+    // Update the label of the date
     func updateDueDateLabel(date: Date) {
         dueDateLabel.text = ToDo.dueDateFormatter.string(from: date)
     }
     
+    // Return the info to the main tableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "saveUnwind" else { return }
         
@@ -98,6 +107,7 @@ class ToDoViewController: UITableViewController {
         let dueDate = dueDatePickerView.date
         let notes = notesTextView.text
         
+        // Add a new instance of Todo()
         todo = ToDo(title: title, isComplete: isComplete, dueDate: dueDate, notes: notes)
     }
 }

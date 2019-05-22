@@ -10,6 +10,7 @@ import UIKit
 
 class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
     
+    // Instance a new call to Todo()
     var todos = [ToDo]()
     
     override func viewDidLoad() {
@@ -25,7 +26,6 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
     }
     
     // MARK: - Table View Data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -48,7 +48,6 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
     }
     
     // MARK: - Table View Delegate
-    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -62,7 +61,6 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
     }
     
     // MARK: - ToDo Cell Delegate
-    
     func checkMarkTapped(_ sender: ToDoCell) {
         if let indexPath = tableView.indexPath(for: sender) {
             var todo = todos[indexPath.row]
@@ -93,6 +91,7 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
         ToDo.saveToDos(todos)
     }
     
+    // Send the data to the main tableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails" {
             let todoViewController = segue.destination as! ToDoViewController

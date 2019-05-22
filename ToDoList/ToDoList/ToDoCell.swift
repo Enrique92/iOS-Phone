@@ -14,8 +14,9 @@ protocol ToDoCellDelegate {
 
 class ToDoCell: UITableViewCell {
     
-    @IBOutlet weak var isCompleteButton: UIButton!
-    @IBOutlet weak var titleLabel: UILabel!
+    // Add the items of the tableView
+    @IBOutlet var isCompleteButton: UIButton!
+    @IBOutlet var titleLabel: UILabel!
     
     var delegate: ToDoCellDelegate?
     

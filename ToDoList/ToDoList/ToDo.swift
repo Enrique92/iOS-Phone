@@ -9,6 +9,7 @@
 import Foundation
 
 struct ToDo: Codable {
+    // Create the atributes for the task
     var title: String
     var isComplete: Bool
     var dueDate: Date
@@ -25,6 +26,7 @@ struct ToDo: Codable {
         return try? propertyListDecoder.decode(Array<ToDo>.self, from: codedToDos)
     }
     
+    // Load the initial task into the tableView
     static func loadSampleToDos() -> [ToDo] {
         return [
             ToDo(title: "Read", isComplete: false, dueDate: Date(), notes: "Read at least 100 pages."),
@@ -33,12 +35,14 @@ struct ToDo: Codable {
         ]
     }
     
+    // Save the changes for the task
     static func saveToDos(_ todos: [ToDo]) {
         let propertyListEncoder = PropertyListEncoder()
         let codedToDos = try? propertyListEncoder.encode(todos)
         try? codedToDos?.write(to: ArchiveURL, options: .noFileProtection)
     }
     
+    // Create the date picker for the task
     static let dueDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
